@@ -1,6 +1,5 @@
 package seedu.address.model.person;
 
-import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
@@ -24,8 +23,9 @@ public class Remark {
      * @param remark A valid remark.
      */
     public Remark(String remark) {
-        requireNonNull(remark);
-        checkArgument(isValidRemark(remark), MESSAGE_CONSTRAINTS);
+        if (remark != null) {
+            checkArgument(isValidRemark(remark), MESSAGE_CONSTRAINTS);
+        }
         value = remark;
     }
 
